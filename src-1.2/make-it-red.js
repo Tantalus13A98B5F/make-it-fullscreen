@@ -18,7 +18,7 @@ MakeItRed = {
 	},
 	
 	log(msg) {
-		Zotero.debug("Make It Red: " + msg);
+		Zotero.debug("Make It Fullscreen: " + msg);
 	},
 	
 	addToWindow(window) {
@@ -31,10 +31,10 @@ MakeItRed = {
 		// Add menu option
 		let menuitem = doc.createElementNS(XUL_NS, 'menuitem');
 		menuitem.id = 'make-it-green-instead';
-		menuitem.setAttribute('type', 'checkbox');
+		menuitem.setAttribute('type', 'button');
 		menuitem.setAttribute('data-l10n-id', 'make-it-red-green-instead');
 		menuitem.addEventListener('command', () => {
-			MakeItRed.toggleGreen(window, menuitem.getAttribute('checked') === 'true');
+			MakeItRed.toggleFullscreen(window);
 		});
 		doc.getElementById('menu_viewPopup').appendChild(menuitem);
 		this.storeAddedElement(menuitem);
@@ -89,12 +89,13 @@ MakeItRed = {
 		}
 	},
 	
-	toggleGreen(window, enabled) {
-		if (window.document.fullscreenElement) {
-			window.document.exitFullscreen();
+	toggleFullscreen(window) {
+		var doc = window.document;
+		if (doc.fullscreenElement) {
+			doc.exitFullscreen();
 		}
 		else {
-			window.document.documentElement.requestFullscreen();
+			doc.documentElement.requestFullscreen();
 		}
 	},
 	
