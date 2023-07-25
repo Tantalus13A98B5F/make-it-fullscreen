@@ -28,15 +28,6 @@ MakeItRed = {
 		let HTML_NS = "http://www.w3.org/1999/xhtml";
 		let XUL_NS = "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 		
-		// Add a stylesheet to the main Zotero pane
-		let link1 = doc.createElementNS(HTML_NS, 'link');
-		link1.id = 'make-it-red-stylesheet';
-		link1.type = 'text/css';
-		link1.rel = 'stylesheet';
-		link1.href = this.rootURI + 'style.css';
-		doc.documentElement.appendChild(link1);
-		this.storeAddedElement(link1);
-		
 		// Add menu option
 		let menuitem = doc.createElementNS(XUL_NS, 'menuitem');
 		menuitem.id = 'make-it-green-instead';
@@ -99,13 +90,11 @@ MakeItRed = {
 	},
 	
 	toggleGreen(window, enabled) {
-		let docElem = window.document.documentElement;
-		// Element#toggleAttribute() is not supported in Zotero 6
-		if (enabled) {
-			docElem.setAttribute('data-green-instead', 'true');
+		if (window.document.fullscreenElement) {
+			window.document.exitFullscreen();
 		}
 		else {
-			docElem.removeAttribute('data-green-instead');
+			window.document.documentElement.requestFullscreen();
 		}
 	},
 	
