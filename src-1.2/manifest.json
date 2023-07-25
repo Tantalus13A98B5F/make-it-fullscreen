@@ -1,13 +1,12 @@
 {
 	"manifest_version": 2,
-	"name": "Make It Red",
+	"name": "Make It Fullscreen",
 	"version": "1.2",
-	"description": "Makes everything red",
-	"homepage_url": "https://github.com/zotero/make-it-red",
+	"description": "Makes Zotero Fullscreen",
+	"homepage_url": "https://github.com/Tantalus13A98B5F/make-it-fullscreen/",
 	"applications": {
 		"zotero": {
-			"id": "make-it-red@zotero.org",
-			"update_url": "https://zotero-download.s3.amazonaws.com/tmp/make-it-red/updates-1.2.json",
+			"id": "make-it-fullscreen@zotero.org",
 			"strict_min_version": "6.999",
 			"strict_max_version": "7.0.*"
 		}

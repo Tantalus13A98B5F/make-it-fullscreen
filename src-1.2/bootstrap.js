@@ -1,10 +1,10 @@
 if (typeof Zotero == 'undefined') {
 	var Zotero;
 }
-var MakeItRed;
+var MakeItFullscreen;
 
 function log(msg) {
-	Zotero.debug("Make It Red: " + msg);
+	Zotero.debug("Make It Fullscreen: " + msg);
 }
 
 // In Zotero 6, bootstrap methods are called before Zotero is initialized, and using include.js
@@ -97,23 +97,23 @@ async function startup({ id, version, resourceURI, rootURI = resourceURI.spec })
 		setDefaultPrefs(rootURI);
 	}
 	
-	Services.scriptloader.loadSubScript(rootURI + 'make-it-red.js');
+	Services.scriptloader.loadSubScript(rootURI + 'make-it-fullscreen.js');
 	
-	MakeItRed.init({ id, version, rootURI });
-	MakeItRed.addToAllWindows();
-	await MakeItRed.main();
+	MakeItFullscreen.init({ id, version, rootURI });
+	MakeItFullscreen.addToAllWindows();
+	await MakeItFullscreen.main();
 }
 
 function shutdown() {
 	log("Shutting down");
-	MakeItRed.removeFromAllWindows();
-	MakeItRed = undefined;
+	MakeItFullscreen.removeFromAllWindows();
+	MakeItFullscreen = undefined;
 }
 
 function uninstall() {
 	// `Zotero` object isn't available in `uninstall()` in Zotero 6, so log manually
 	if (typeof Zotero == 'undefined') {
-		dump("Make It Red: Uninstalled\n\n");
+		dump("Make It Fullscreen: Uninstalled\n\n");
 		return;
 	}
 	

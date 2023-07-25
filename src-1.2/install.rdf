@@ -3,24 +3,21 @@
         xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
     <Description about="urn:mozilla:install-manifest">
-        <em:id>make-it-red@zotero.org</em:id>
-        <em:name>Make It Red</em:name>
+        <em:id>make-it-fullscreen@zotero.org</em:id>
+        <em:name>Make It Fullscreen</em:name>
         <em:version>1.2</em:version>
         <em:multiprocessCompatible>true</em:multiprocessCompatible>
-        <em:updateURL>https://zotero-download.s3.amazonaws.com/tmp/make-it-red/updates-1.1.json</em:updateURL>
-        <em:homepageURL>https://github.com/zotero/make-it-red</em:homepageURL>
+        <em:homepageURL>https://github.com/Tantalus13A98B5F/make-it-fullscreen/</em:homepageURL>
         <em:localized>
             <Description>
                 <em:locale>en-US</em:locale>
-                <em:name>Make It Red </em:name>
-                <em:description>Makes everything red</em:description>
+                <em:name>Make It Fullscreen</em:name>
+                <em:description>Makes Zotero Fullscreen</em:description>
             </Description>
         </em:localized>
 
         <em:creator>Zotero</em:creator>
         <em:type>2</em:type> <!-- type=extension -->
-        <em:iconURL>chrome://make-it-red/skin/icon.png</em:iconURL>
-        <em:icon64URL>chrome://make-it-red/skin/icon64.png</em:icon64URL>
         <em:bootstrap>true</em:bootstrap>
 
         <em:targetApplication>

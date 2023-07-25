@@ -1,2 +1,2 @@
-make-it-red-green-instead =
+make-it-fullscreen =
     .label = Make It Fullscreen

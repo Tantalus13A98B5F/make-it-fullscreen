@@ -2,7 +2,7 @@ if (Zotero.platformMajorVersion < 102) {
 	Cu.importGlobalProperties(['URL']);
 }
 
-MakeItRed = {
+MakeItFullscreen = {
 	id: null,
 	version: null,
 	rootURI: null,
@@ -30,26 +30,26 @@ MakeItRed = {
 		
 		// Add menu option
 		let menuitem = doc.createElementNS(XUL_NS, 'menuitem');
-		menuitem.id = 'make-it-green-instead';
+		menuitem.id = 'make-it-fullscreen';
 		menuitem.setAttribute('type', 'button');
-		menuitem.setAttribute('data-l10n-id', 'make-it-red-green-instead');
+		menuitem.setAttribute('data-l10n-id', 'make-it-fullscreen');
 		menuitem.addEventListener('command', () => {
-			MakeItRed.toggleFullscreen(window);
+			MakeItFullscreen.toggleFullscreen(window);
 		});
 		doc.getElementById('menu_viewPopup').appendChild(menuitem);
 		this.storeAddedElement(menuitem);
 		
 		// Use strings from make-it-red.ftl (Fluent) in Zotero 7
 		if (Zotero.platformMajorVersion >= 102) {
-			window.MozXULElement.insertFTLIfNeeded("make-it-red.ftl");
+			window.MozXULElement.insertFTLIfNeeded("make-it-fullscreen.ftl");
 		}
 		// Use strings from make-it-red.properties (legacy properties format) in Zotero 6
 		else {
 			let stringBundle = Services.strings.createBundle(
-				'chrome://make-it-red/locale/make-it-red.properties'
+				'chrome://make-it-fullscreen/locale/make-it-fullscreen.properties'
 			);
-			doc.getElementById('make-it-green-instead')
-				.setAttribute('label', stringBundle.GetStringFromName('makeItGreenInstead.label'));
+			doc.getElementById('make-it-fullscreen')
+				.setAttribute('label', stringBundle.GetStringFromName('makeItFullscreen.label'));
 		}
 	},
 	
@@ -77,7 +77,7 @@ MakeItRed = {
 			let elem = doc.getElementById(id);
 			if (elem) elem.remove();
 		}
-		doc.querySelector('[href="make-it-red.ftl"]').remove();
+		doc.querySelector('[href="make-it-fullscreen.ftl"]').remove();
 	},
 	
 	removeFromAllWindows() {
@@ -106,6 +106,6 @@ MakeItRed = {
 		this.log(`Host is ${host}`);
 		
 		// Retrieve a global pref
-		this.log(`Intensity is ${Zotero.Prefs.get('extensions.make-it-red.intensity', true)}`);
+		// this.log(`Intensity is ${Zotero.Prefs.get('extensions.make-it-red.intensity', true)}`);
 	},
 };
