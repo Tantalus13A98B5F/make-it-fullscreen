@@ -39,6 +39,12 @@ MakeItFullscreen = {
 		doc.getElementById('menu_viewPopup').appendChild(menuitem);
 		this.storeAddedElement(menuitem);
 		
+		doc.addEventListener( "keydown", (e) => {
+			if (e.key === "F11") {
+				MakeItFullscreen.toggleFullscreen(window);
+			}
+		});
+
 		// Use strings from make-it-red.ftl (Fluent) in Zotero 7
 		if (Zotero.platformMajorVersion >= 102) {
 			window.MozXULElement.insertFTLIfNeeded("make-it-fullscreen.ftl");
