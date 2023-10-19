@@ -40,8 +40,11 @@ MakeItFullscreen = {
 		this.storeAddedElement(menuitem);
 		
 		doc.addEventListener( "keydown", (e) => {
-			if (e.key === "F11") {
-				MakeItFullscreen.toggleFullscreen(window);
+			switch (e.key) {
+				case "F11":
+				case "Enter":
+					MakeItFullscreen.toggleFullscreen(window);
+					break;
 			}
 		});
 
